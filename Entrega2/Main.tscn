@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/floor.png" type="Texture" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://entities/player/Player2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/player/Torreta.tscn" type="PackedScene" id=6]
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+enemyScene = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_right = -2.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Floor" type="TextureRect" parent="."]
+anchor_top = 0.699
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spawner2" type="Node2D" parent="."]
+position = Vector2( 384.868, 176.398 )
+
+[node name="SpawnArea" type="ReferenceRect" parent="."]
+margin_left = -1.52588e-05
+margin_top = 48.1085
+margin_right = 40.0
+margin_bottom = 88.1085
+rect_scale = Vector2( 19.9362, 7.27493 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 391.739, 387.249 )
