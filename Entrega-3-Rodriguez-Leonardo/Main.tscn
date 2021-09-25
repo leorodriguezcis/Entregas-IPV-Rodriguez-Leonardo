@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://World/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
+[ext_resource path="res://World/cubeW.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://entities/player/Player2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/player/Torreta.tscn" type="PackedScene" id=6]
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+enemyScene = ExtResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_right = -2.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spawner2" type="Node2D" parent="."]
+position = Vector2( 384.868, 176.398 )
+
+[node name="SpawnArea" type="ReferenceRect" parent="."]
+margin_left = 3.36351
+margin_top = 21.1998
+margin_right = 43.3635
+margin_bottom = 61.1998
+rect_scale = Vector2( 19.9362, 7.27493 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 391.739, 387.249 )
+
+[node name="Camera2D" type="Camera2D" parent="Player2D"]
+current = true
+
+[node name="Floor3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -361.1, 538.827 )
+
+[node name="Floor" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1221.89, 543.257 )
+
+[node name="Floor2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 407.688, 539.856 )
+
+[node name="cube2" parent="." instance=ExtResource( 3 )]
+
+[node name="cube" parent="." instance=ExtResource( 3 )]
+position = Vector2( 181.429, 65.5159 )
