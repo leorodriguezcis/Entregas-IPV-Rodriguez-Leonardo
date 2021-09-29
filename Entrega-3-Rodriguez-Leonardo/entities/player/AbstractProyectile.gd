@@ -36,3 +36,7 @@ func _on_Area2D_body_entered(body):
 	if body is Player:
 		_remove()
 		body._destroy()
+	if body is Turret:
+		_remove()
+		body._destroy()
+

@@ -37,15 +37,15 @@ turret_scene = ExtResource( 4 )
 
 [node name="Floor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 404.11, 512.111 )
-collision_layer = 2
+collision_layer = 6
 
 [node name="Floor2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1830.82, 837.813 )
-collision_layer = 2
+collision_layer = 6
 
 [node name="Floor3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1138.54, 410.663 )
-collision_layer = 2
+collision_layer = 6
 
 [node name="Cube3" parent="." instance=ExtResource( 7 )]
 collision_layer = 2

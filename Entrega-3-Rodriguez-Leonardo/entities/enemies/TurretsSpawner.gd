@@ -6,6 +6,7 @@ func _ready():
 	call_deferred("initialize")
 
 func initialize():
+	
 	var visible_rect:Rect2 = get_viewport().get_visible_rect()
 	for i in 3:
 		var turret_instance = turret_scene.instance()
