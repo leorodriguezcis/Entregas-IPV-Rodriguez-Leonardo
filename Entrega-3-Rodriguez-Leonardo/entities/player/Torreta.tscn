@@ -1,16 +1,43 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/textures/turret.png" type="Texture" id=1]
-[ext_resource path="res://entities/player/Torreta.gd" type="Script" id=2]
 [ext_resource path="res://entities/enemies/EnemyProjectile.tscn" type="PackedScene" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+export (PackedScene) var projectile_scene
+var player
+var projectile_container:Node
+onready var fire_position = $Fire_Position
+
+func set_values(player:KinematicBody2D, container:Node):
+	self.player = player
+	projectile_container= container
+	$Timer.start()
+
+func _on_Timer_timeout():
+	fire()
+
+func fire():
+	var projectile = projectile_scene.instance()
+	projectile_container.add_child(projectile)
+	projectile.set_starting_values(fire_position.global_position, (player.global_position - fire_position.global_position).normalized())
+	projectile.connect(\"delete_requested\",self, \"_on_projectile_delete_requested\")
+
+func _on_projectile_delete_requested(projectile):
+	projectile_container.remove_child(projectile)
+	projectile.queue_free()
+"
 
 [node name="Torreta" type="Sprite"]
 position = Vector2( 371.505, 216.488 )
 texture = ExtResource( 1 )
-script = ExtResource( 2 )
+script = SubResource( 1 )
 projectile_scene = ExtResource( 3 )
 
 [node name="Fire_Position" type="Position2D" parent="."]
+position = Vector2( -0.840881, -4.20447 )
 
 [node name="Timer" type="Timer" parent="."]
 

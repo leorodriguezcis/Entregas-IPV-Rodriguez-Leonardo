@@ -1,8 +1,8 @@
-extends Sprite
+extends StaticBody2D
 
 onready var fire_position = $FirePosition
 onready var fire_timer = $FireTimer
-
+class_name Turret
 export (PackedScene) var projectile_scene
 
 var target
@@ -32,3 +32,8 @@ func _on_DetectionArea_body_exited(body):
 	if target == body:
 		target= null
 		fire_timer.stop()
+		
+		
+func _destroy():
+	
+	queue_free()

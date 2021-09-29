@@ -1,7 +1,6 @@
 extends KinematicBody2D
-class_name Player
 onready var cannon = $Cannon
-
+class_name Player
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 600.0
 export (float) var FRICTION_WEIGHT:float = 0.1
@@ -10,7 +9,7 @@ export (float) var GRAVITY:float = 2
 
 var velocity:Vector2 = Vector2.ZERO
 var projectile_container
-
+var target
 func initialize(projectile_container):
 	self.projectile_container = projectile_container
 	cannon.projectile_container = projectile_container
@@ -45,4 +44,10 @@ func _physics_process(delta):
 #	position += velocity * delta
 
 func _destroy():
+	get_parent().remove_child(self)
 	queue_free()
+
+func _on_DetectionArea_body_exited(body):
+	if target == body:
+		target= null
+	
