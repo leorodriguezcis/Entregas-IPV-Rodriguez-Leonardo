@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gemCollect.mp3-30fd0b9eea1d641dba9922d322bdf3c5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/gemCollect.mp3"
+dest_files=[ "res://.import/gemCollect.mp3-30fd0b9eea1d641dba9922d322bdf3c5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
